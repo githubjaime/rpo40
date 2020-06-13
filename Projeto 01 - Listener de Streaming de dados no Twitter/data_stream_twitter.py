@@ -24,13 +24,13 @@ os.system('cls')  # on windows
 #------------------------------------------
 
 # Adicione aqui sua Consumer Key
-consumer_key = "VQ1lzuj9vXYzxXS7kscZIMQDX"
+consumer_key = "xxxxx"
 # Adicione aqui sua Consumer Secret 
-consumer_secret = "kzD16LStIOVRZKeUGsKKsCAeFGEchkmloWHHNU9EGA0cYxwzNp"
+consumer_secret = "xxxxx"
 # Adicione aqui seu Access Token
-access_token = "1269796100116041730-7pVPiPzKFQAJXhDzvqgvsZMNVGIGvZ"
+access_token = "xxxxx"
 # Adicione aqui seu Access Token Secret
-access_token_secret = "L44qHFoKmoiKbRQMlrmCHLrG6CT0KJfgIBPG9WV8X3oci"
+access_token_secret = "xxxxx"
 # Criando as chaves de autenticação
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
