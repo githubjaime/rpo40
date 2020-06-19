@@ -141,4 +141,15 @@ word_count[:35]
 
 print(word_count)
 
+#import csv
+
+#with open('result.csv', 'w', newline='') as csvfile:
+#    fieldnames = ['word', 'count']
+#    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+#    writer.writeheader()
+#    for n to len(word_count);
+#	    writer.writerow({'word': word_count["word"], 'count': word_count[count]})
+
+
 
