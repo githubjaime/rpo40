@@ -141,15 +141,33 @@ word_count[:35]
 
 print(word_count)
 
-#import csv
+import csv
 
-#with open('result.csv', 'w', newline='') as csvfile:
-#    fieldnames = ['word', 'count']
-#    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+with open('result.csv', 'w', newline='') as csvfile:
+    fieldnames = ['word', 'count']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-#    writer.writeheader()
-#    for n to len(word_count);
-#	    writer.writerow({'word': word_count["word"], 'count': word_count[count]})
+    writer.writeheader()
+    for n to len(word_count);
+	    writer.writerow({'word': word_count["word"], 'count': word_count[count]})
 
-
+# import xlsxwriter module 
+#import xlsxwriter 
+  
+# Workbook() takes one, non-optional, argument  
+# which is the filename that we want to create. 
+#workbook = xlsxwriter.Workbook('result.xlsx') 
+  
+# The workbook object is then used to add new  
+# worksheet via the add_worksheet() method. 
+#worksheet = workbook.add_worksheet() 
+  
+# Use the worksheet object to write 
+# data via the write() method. 
+#worksheet.write('A1', word_count["word"] ) 
+#worksheet.write('B1', word_count["count"] ) 
+  
+# Finally, close the Excel file 
+# via the close() method. 
+workbook.close() 
 
