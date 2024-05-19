@@ -1,0 +1,108 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <meta name="description" content="Faça a previsão do preço do veículo usando Machine Learning." />
+    <link rel="icon" type="image/png" href="{{ url_for('.static', filename='car.gif') }}">
+    <script src="https://cdn.plot.ly/plotly-2.6.3.min.js"></script>
+{% endblock %}
+    Home
+{% block title %}
+
+{% endblock %}
+
+{% block navbar %}
+    {{ nav.mynavbar.render() }}
+{% endblock %}
+
+{% block content %}
+    <center>Bem-Vindo(a) {{ name }}</center>
+    <div class="container">
+        <div>
+            <h2>Relatório - Preço do Veículo x Ano de Fabricação</h2>
+            <div id="bar-chart"></div>
+            <p>Relação entre preço do veículo e ano de fabricação (Mostrando dados do Toyota Land cruiser).</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div>
+            <h2>Relatório - Preço do Veículo x Kilometragem</h2>
+            <div id="scatter"></div>
+            <p>Relação entre preço do veículo e kilometragem. Quanto maior a kilometragem do veículo, menor o valor de revenda (Mostrando dados do Toyota Land cruiser).</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div>
+            <h2>Relatório 3D - Preço do Veículo x Kilometragem x Ano de Fabricação</h2>
+            <div id="3d-scatter"></div>
+            <p>Este gráfico 3D mostra o valor do veículo por 3 dimensões. O gráfico é interativo. Movimente-o com o mouse para analisar os dados por diferentes ângulos (Mostrando dados do Toyota Land cruiser).</p>
+        </div>
+        <br>
+        <br>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+
+   <script>
+    chart = document.getElementById('3d-scatter');
+    var data = [{
+        x: {{ info['odometer'] }},
+        y: {{ info['year'] }},
+        z: {{ info['price'] }},
+        mode: 'markers',
+        type: 'scatter3d',
+        hovertemplate: 'Price: $ %{z:,}<br>Year: %{y}<br>Odometer: %{x:,}'
+    }];
+
+    var layout = {
+        scene: {
+            xaxis: {title: 'Odometer'},
+            yaxis: {title: 'Year'},
+            zaxis: {title: 'Price'}
+        }
+    };
+
+    var config = {responsive: true};
+    Plotly.newPlot(chart, data, layout, config);
+</script>
+
+<script>
+    chart = document.getElementById('scatter');
+    var data = [{
+        x: {{ info['odometer'] }},
+        y: {{ info['price'] }},
+        mode: 'markers',
+        type: 'scatter'
+    }];
+
+    var layout = {
+        xaxis: {title: 'odometer'},
+        yaxis: {title: 'Price'},
+    };
+    var config = {responsive: true};
+    Plotly.newPlot(chart, data, layout, config);
+</script>
+
+<script>
+    chart = document.getElementById('bar-chart');
+    var data = [{
+        x: {{ info['year'] }},
+        y: {{ info['price'] }},
+        type: 'bar'
+    }];
+
+    var layout = {
+        xaxis: {title: 'year'},
+        yaxis: {title: 'Price'},
+        };
+    var config = {responsive: true};
+    Plotly.newPlot(chart, data, layout, config);
+</script>
+{% endblock %}
+
+

@@ -1,0 +1,15 @@
+# Como executar a app:
+
+1- Baixe e instale o Mini-Conda ou o Anaconda Python.
+
+2- Copie os arquivos para o servidor.
+
+3- Abra o terminal e navegue até a pasta com os arquivos do Lab.
+
+4- Instale as dependências: pip install -r requirements.txt
+
+5- Execute a app: flask run
+
+6- Se usando AWS, verifique o ip ou nome DNS do servidor e acesse a app pelo navegador: http://ip_nome_servidor:5000
+
+7- Se usando ambiente local, acesse a app pelo navegador: http://127.0.0.1:5000

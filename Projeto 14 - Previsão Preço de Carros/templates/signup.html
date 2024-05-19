@@ -1,0 +1,28 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="icon" type="image/png" href="{{ url_for('.static', filename='car.gif') }}">
+{% endblock %}
+
+{% block title %}
+    Página de Cadastro
+{% endblock %}
+
+{% block navbar %}
+    {{ nav.mynavbar.render() }}
+{% endblock %}
+
+{% block content %}
+    <div class="container" style="width: 400px;">
+        <h1>Criar Conta</h1>
+        <form class="form" action="{{ url_for('signup') }}" method="post">
+            {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.username) }}
+            {{ wtf.form_field(form.email) }}
+            {{ wtf.form_field(form.password) }}
+            {{ wtf.form_field(form.register) }}
+        </form>
+    </div>
+{% endblock %}

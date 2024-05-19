@@ -1,0 +1,53 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    Página de Resultado
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="icon" type="image/png" href="{{ url_for('.static', filename='car.gif') }}">
+{% endblock %}
+
+{% block navbar %}
+    {{ nav.mynavbar.render() }}
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <h1>Valor previsto para o veículo:</h1>
+        <br>
+
+        <table class="table table-striped table-hover">
+            <tbody>
+                {% for k, v in car.items() %}
+                <tr>
+                    <td>{{ k }}</td>
+                    <td>{{ v }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br>
+        <br>
+
+        <table class="table table-striped table-hover">
+            <tbody>
+               {% for k, v in predictions.items() %}
+                <tr>
+                    <td>{{ k }}</td>
+                    <td>{{ "$ {:,.2f}".format(v) }}</td>
+                </tr>
+               {% endfor %}
+            </tbody>
+        </table>
+
+        <br>
+        <p class="text-info">Obrigado por usar esta Web App!</p>
+        <br>
+        <br>
+    </div>
+{% endblock %}
+

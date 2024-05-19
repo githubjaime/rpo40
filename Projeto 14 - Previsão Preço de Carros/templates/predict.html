@@ -1,0 +1,51 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+    Página de Previsões
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="icon" type="image/png" href="{{ url_for('.static', filename='car.gif') }}">
+{% endblock %}
+
+{% block navbar %}
+    {{ nav.mynavbar.render() }}
+{% endblock %}
+
+
+{% block content %}
+    <center>Bem-Vindo(a) {{ name }}</center>
+    <div class="container">
+        <div>
+            <h3>Módulo de Previsão de Preço de Veículos</h3>
+            <p>Esta Web App usa Machine Learning e é bastante intuitiva. Use o menu superior para navegar pela app.</p>
+            <br>
+        </div>
+        <h2>Insira as informações sobre o veículo para prever o valor.</h2>
+        <br>
+        <br>
+        <form class="form" action="{{ url_for('predict') }}" method="post">
+            {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.make) }}
+            {{ wtf.form_field(form.model) }}
+            {{ wtf.form_field(form.year) }}
+            {{ wtf.form_field(form.odometer) }}
+            {{ form.transmission.label }}
+            {{ wtf.form_field(form.transmission) }}
+            <br>
+            {{ wtf.form_field(form.submit) }}
+        </form>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('.static', filename='script.js') }}"></script>
+{% endblock %}
+
+
+
+

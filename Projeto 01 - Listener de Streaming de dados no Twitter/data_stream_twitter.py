@@ -23,15 +23,17 @@ os.system('cls')  # on windows
 # e-mail.: jaime@falcony.com.br
 #------------------------------------------
 
+
 # Adicione aqui sua Consumer Key
-consumer_key = "xxxxx"
+consumer_key = "VQ1lzuj9vXYzxXS7kscZIMQDX"
 # Adicione aqui sua Consumer Secret 
-consumer_secret = "xxxxx"
+consumer_secret = "kzD16LStIOVRZKeUGsKKsCAeFGEchkmloWHHNU9EGA0cYxwzNp"
 # Adicione aqui seu Access Token
-access_token = "xxxxx"
+access_token = "1269796100116041730-7pVPiPzKFQAJXhDzvqgvsZMNVGIGvZ"
 # Adicione aqui seu Access Token Secret
-access_token_secret = "xxxxx"
-# Criando as chaves de autenticação
+access_token_secret = "L44qHFoKmoiKbRQMlrmCHLrG6CT0KJfgIBPG9WV8X3oci"
+
+
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
@@ -88,7 +90,7 @@ col = db.tweets
 db.drop_collection(col)
 
 # Criando uma lista de palavras chave para buscar nos Tweets
-keywords = ['Big Data', 'Python', 'Data Mining', 'Data Science']
+keywords = ['Will Smith']
 
 #------------------------------------------
 # Coletando os Tweets
@@ -148,7 +150,7 @@ with open('result.csv', 'w', newline='') as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
     writer.writeheader()
-    for n to len(word_count);
+    for n in len(word_count):
 	    writer.writerow({'word': word_count["word"], 'count': word_count[count]})
 
 # import xlsxwriter module 

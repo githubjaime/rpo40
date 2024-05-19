@@ -20,7 +20,7 @@ print('Versão da Linguagem Python Usada Neste Jupyter Notebook:', python_versio
 # In[ ]:
 
 
-get_ipython().system('pip install -q tensorflow==1.15.2')
+#get_ipython().system('pip install -q tensorflow==1.15.2')
 
 
 # In[ ]:

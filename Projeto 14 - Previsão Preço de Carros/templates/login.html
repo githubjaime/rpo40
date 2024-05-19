@@ -1,0 +1,44 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="icon" type="image/png" href="{{ url_for('.static', filename='car.gif') }}">
+{% endblock %}
+
+{% block title %}
+    Página de Login
+{% endblock %}
+
+{% block navbar %}
+    {{ nav.mynavbar.render() }}
+{% endblock %}
+
+{% block content %}
+    <div class="container" style="width: 400px;">
+        <div>
+            <h2>Bem-Vindo(a)!</h2>
+            <h3>Módulo de Login</h3>
+            <p>Digite username e senha para entrar (ou crie sua conta).</p>
+        </div>
+        <h1>Entrar</h1>
+        <form class="form" action="{{ url_for('login') }}" method="post">
+            {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.username) }}
+            {{ wtf.form_field(form.password) }}
+            {{ wtf.form_field(form.login) }}
+        </form>
+        <br>
+        Não tem uma conta? <a href="{{ url_for('signup') }}">Criar Conta</a>
+        <br>
+        <br>
+    </div>
+    <br>
+
+    {% for message in get_flashed_messages() %}
+        <p style="color:red" class="text-center">{{ message }}</p>
+    {% endfor %}
+
+{% endblock %}
+
+
